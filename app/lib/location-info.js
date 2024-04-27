@@ -31,3 +31,17 @@ export async function getLocationLatLong(locationName) {
         console.log(err.message);
     }
 }
+
+export async function getResolvedLatLong(lat, lon, location) {
+    if (lat && lon) {
+        return { lat, lon };
+    }
+    const locationLatLon = await getLocationLatLong(location);
+
+    if (locationLatLon.latitude && locationLatLon.longitude) {
+        const lat = locationLatLon.loatiude;
+        const lon = locationLatLon.longitude;
+
+        return { lat, lon };
+    }
+}

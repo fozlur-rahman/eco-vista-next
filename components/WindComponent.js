@@ -8,7 +8,7 @@ const WindComponent = async ({ lat, lon }) => {
     return (
         <Card>
             <h6 class="feature-name">Wind</h6>
-            <div class="feature-main">
+            <div class="feature-main flex flex-row space-x-8">
                 <Image
                     class="max-w-20"
                     src="/icons/icon_wind.png"
@@ -16,8 +16,10 @@ const WindComponent = async ({ lat, lon }) => {
                     width={80}
                     height={80}
                 />
-                <h3 class="feature-title">{speed} meter/sec</h3>
-                <span class="feature-name">{deg} degrees</span>
+                <div>
+                    <h3 class="feature-title">{speed} meter/sec</h3>
+                    <span class="feature-name">{deg} degrees</span>
+                </div>
             </div>
         </Card>
     );

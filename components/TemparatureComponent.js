@@ -8,7 +8,7 @@ const TemparatureComponent = async ({ lat, lon }) => {
     return (
         <Card>
             <h6 class="feature-name">Current Temperature</h6>
-            <div class="feature-main">
+            <div class="feature-main flex flex-row space-x-8">
                 <Image
                     class="max-w-20"
                     src="/icons/icon_tempareture.png"
@@ -16,9 +16,11 @@ const TemparatureComponent = async ({ lat, lon }) => {
                     width={80}
                     height={80}
                 />
-                <h3 class="feature-title">{temp}°C</h3>
+                <div>
+                    <h3 class="feature-title">{temp}°C</h3>
 
-                <span class="feature-name">Feels Like {feels_like}°C</span>
+                    <span class="feature-name">Feels Like {feels_like}°C</span>
+                </div>
             </div>
         </Card>
     );

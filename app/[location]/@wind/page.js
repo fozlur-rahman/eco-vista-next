@@ -1,11 +1,17 @@
+import { getResolvedLatLong } from "@/app/lib/location-info";
+import NoLocationInfo from "@/components/NoLocationInfo";
 import WindComponent from "@/components/WindComponent";
-import React from "react";
 
-const WindPage = ({
+const WindPage = async ({
     params: { location },
     searchParams: { latitude, longitude },
 }) => {
-    return <WindComponent lat={latitude} lon={longitude} />;
+    const resolve = await getResolvedLatLong(latitude, longitude, location);
+    if (resolve?.lat && resolve?.lon) {
+        return <WindComponent lat={resolve.lat} lon={resolve.lat} />;
+    } else {
+        return <NoLocationInfo location={location} />;
+    }
 };
 
 export default WindPage;
